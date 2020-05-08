@@ -11,10 +11,10 @@ function StartAR(image) {
     const video = document.getElementById('video')
 
     Promise.all([
-        faceapi.nets.tinyFaceDetector.loadFromUri('https://arscripts.azurewebsites.net/models'),
-        faceapi.nets.faceLandmark68Net.loadFromUri('https://arscripts.azurewebsites.net/models'),
-        faceapi.nets.faceRecognitionNet.loadFromUri('https://arscripts.azurewebsites.net/models'),
-        faceapi.nets.faceExpressionNet.loadFromUri('https://arscripts.azurewebsites.net/models')
+        faceapi.nets.tinyFaceDetector.loadFromUri('https://drabon2020.github.io'),
+        faceapi.nets.faceLandmark68Net.loadFromUri('https://drabon2020.github.io'),
+        faceapi.nets.faceRecognitionNet.loadFromUri('https://drabon2020.github.io'),
+        faceapi.nets.faceExpressionNet.loadFromUri('https://drabon2020.github.io')
     ]).then(startVideo)
 
     function startVideo() {
@@ -50,9 +50,9 @@ function StartAR(image) {
 
             const resizedDetections = faceapi.resizeResults(detections, displaySize)
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
-            faceapi.draw.drawDetections(canvas, resizedDetections)
+            //faceapi.draw.drawDetections(canvas, resizedDetections)
             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
-            faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+            //faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
 
             
         }, 250)
