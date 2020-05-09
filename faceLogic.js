@@ -3,7 +3,7 @@ setTimeout(function () {
     ruisantos.FaceComponent5.StaticInstance.ReceiveData("Ready");
     ruisantos.FaceComponent5.StaticInstance.refreshData();
     StartAR("");
-}, 3000)
+}, 1000)
 
 var found = false;
 
@@ -57,7 +57,7 @@ function StartAR(image) {
             //faceapi.draw.drawDetections(canvas, resizedResults)
 
             
-        }, 125)
+        }, 100)
     })
 
 }
