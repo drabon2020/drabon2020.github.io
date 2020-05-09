@@ -3,7 +3,7 @@ setTimeout(function () {
     ruisantos.FaceComponent5.StaticInstance.ReceiveData("Ready");
     ruisantos.FaceComponent5.StaticInstance.refreshData();
     StartAR("");
-}, 10000)
+}, 30000)
 
 var found = false;
 
