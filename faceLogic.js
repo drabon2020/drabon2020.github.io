@@ -39,7 +39,7 @@ function StartAR(image) {
         setInterval(async () => {
             const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks()
             if (detections.length == 0 && found) {
-                ruisantos.FaceComponent5.StaticInstance.ReceiveData("No found a face");
+                ruisantos.FaceComponent5.StaticInstance.ReceiveData("No faces found");
                 found = false;
             }
             else if (detections.length > 0 && !found) {
