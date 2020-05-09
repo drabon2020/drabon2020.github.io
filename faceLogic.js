@@ -57,7 +57,7 @@ function StartAR(image) {
             //faceapi.draw.drawDetections(canvas, resizedResults)
 
             
-        }, 100)
+        }, 25)
     })
 
 }
