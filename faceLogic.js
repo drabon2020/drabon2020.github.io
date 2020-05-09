@@ -27,7 +27,7 @@ function StartAR(image) {
 
     video.addEventListener('play', () => {
         const canvas = faceapi.createCanvasFromMedia(video)
-        canvas.setAttribute("style", "position: absolute;margin-left: 20px;padding: 0;display: flex;")
+        canvas.setAttribute("style", "position: absolute;margin-left: 0px;padding: 0;display: flex;")
 
         var parent = document.getElementById('video');
         var mainParent = parent.parentNode;
