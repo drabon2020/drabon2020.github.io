@@ -37,7 +37,7 @@ function StartAR(image) {
         faceapi.matchDimensions(canvas, displaySize)
 
         setInterval(async () => {
-            const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions().withAgeAndGender().withFaceDescriptors()
+            const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks()
             if (detections.length == 0 && found) {
                 ruisantos.FaceComponent5.StaticInstance.ReceiveData("Not found a face");
                 found = false;
@@ -52,9 +52,9 @@ function StartAR(image) {
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
             faceapi.draw.drawDetections(canvas, resizedDetections)
             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
-            faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+            //faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
             // draw detections into the canvas
-            faceapi.draw.drawDetections(canvas, resizedResults)
+            //faceapi.draw.drawDetections(canvas, resizedResults)
 
             
         }, 250)
