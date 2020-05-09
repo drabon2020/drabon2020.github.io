@@ -37,7 +37,7 @@ function StartAR(image) {
         faceapi.matchDimensions(canvas, displaySize)
 
         setInterval(async () => {
-            const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
+            const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks()//.withFaceExpressions()
             if (detections.length == 0 && found) {
                 ruisantos.FaceComponent5.StaticInstance.ReceiveData("Not found a face");
                 found = false;
