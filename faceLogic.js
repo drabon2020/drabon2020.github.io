@@ -39,12 +39,16 @@ function StartAR(image) {
 
         setInterval(async () => {
             const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withAgeAndGender()
-                        if (detections.length == 0 && found) {
+            const resizedDetections = faceapi.resizeResults(detections, displaySize)
+            canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
+            
+            if (detections.length == 0 && found) {
                 ruisantos.FaceComponent5.StaticInstance.ReceiveData("No Face Found");
                 found = false;
             }
             else if (detections.length > 0 && !found) {
-                ruisantos.FaceComponent5.StaticInstance.ReceiveData("Math.round(detection.age) + " year old " + detection.gender");
+                resizedDetections.forEach( detection => {
+                ruisantos.FaceComponent5.StaticInstance.ReceiveData("Math.round(detection.age) + " year old " + detection.gender")});
                 found = true;
             }
             ruisantos.FaceComponent5.StaticInstance.refreshData();
@@ -56,8 +60,7 @@ function StartAR(image) {
             backgroundColor: 'rgba(0, 0, 0, 0.5)'
             }
             */
-            const resizedDetections = faceapi.resizeResults(detections, displaySize)
-            canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
+            
             
             //Write to screen
             //faceapi.draw.drawDetections(canvas, resizedDetections)
@@ -65,13 +68,13 @@ function StartAR(image) {
             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
             
             //faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-            
+            /*
             resizedDetections.forEach( detection => {
             const box = detection.detection.box
             const drawBox = new faceapi.draw.DrawBox(box, { label: Math.round(detection.age) + " year old " + detection.gender })
             drawBox.draw(canvas)
     })
-            
+            */
             
         }, 100)
     })
