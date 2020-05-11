@@ -48,7 +48,7 @@ function StartAR(image) {
             }
             else if (detections.length > 0 && !found) {
                 //resizedDetections.forEach( detection => {
-                //ruisantos.FaceComponent5.StaticInstance.ReceiveData(Math.round(detection.age) + " year old " + detection.gender)});
+                ruisantos.FaceComponent5.StaticInstance.ReceiveData("Found Face");
                 found = true;
             }
             ruisantos.FaceComponent5.StaticInstance.refreshData();
@@ -68,13 +68,13 @@ function StartAR(image) {
             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
             
             //faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-            /*
+            
             resizedDetections.forEach( detection => {
             const box = detection.detection.box
             const drawBox = new faceapi.draw.DrawBox(box, { label: Math.round(detection.age) + " year old " + detection.gender })
             drawBox.draw(canvas)
     })
-            */
+            
             
         }, 100)
     })
