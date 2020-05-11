@@ -63,7 +63,7 @@ function StartAR(image) {
             
             
             //Write to screen
-            faceapi.draw.drawDetections(canvas, resizedDetections)
+            //faceapi.draw.drawDetections(canvas, resizedDetections)
             
             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
             
