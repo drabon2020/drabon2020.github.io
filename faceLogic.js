@@ -50,9 +50,23 @@ function StartAR(image) {
             ruisantos.FaceComponent5.StaticInstance.refreshData();
 
             const resizedDetections = faceapi.resizeResults(detections, displaySize)
+            const { age, gender, genderProbability } = resizedDetections
+
+
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
             //faceapi.draw.drawDetections(canvas, resizedDetections)
+
             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
+
+            new faceapi.draw.DrawTextField(
+                [
+                  `${faceapi.utils.round(age, 0)} years`,
+                  `${gender} (${faceapi.utils.round(genderProbability)})`
+                ],
+                detections.detection.box.bottomLeft
+              ).draw(canvas)
+
+
             //faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
             // draw detections into the canvas
             //faceapi.draw.drawDetections(canvas, resizedResults)
