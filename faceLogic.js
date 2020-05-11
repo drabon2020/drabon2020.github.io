@@ -79,10 +79,7 @@ function StartAR(image) {
     })
 
 
-            //faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-            // draw detections into the canvas
-            //faceapi.draw.drawDetections(canvas, resizedResults)
-
+            faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
             
         }, 100)
     })
