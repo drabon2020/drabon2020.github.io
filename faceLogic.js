@@ -48,7 +48,7 @@ function StartAR(image) {
             }
             else if (detections.length > 0 && !found) {
                 resizedDetections.forEach( detection => {
-                ruisantos.FaceComponent5.StaticInstance.ReceiveData("Math.round(detection.age) + " year old " + detection.gender")});
+                ruisantos.FaceComponent5.StaticInstance.ReceiveData(Math.round(detection.age) + " year old " + detection.gender)});
                 found = true;
             }
             ruisantos.FaceComponent5.StaticInstance.refreshData();
