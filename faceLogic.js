@@ -44,7 +44,7 @@ function StartAR(image) {
                 found = false;
             }
             else if (detections.length > 0 && !found) {
-                ruisantos.FaceComponent5.StaticInstance.ReceiveData("Found a Face");
+                ruisantos.FaceComponent5.StaticInstance.ReceiveData("Math.round(detection.age) + " year old " + detection.gender");
                 found = true;
             }
             ruisantos.FaceComponent5.StaticInstance.refreshData();
