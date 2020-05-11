@@ -26,6 +26,12 @@ function StartAR(image) {
         ).then(alert("Loaded"));
     }
 
+    function interpolateAgePredictions(age) {
+      predictedAges = [age].concat(predictedAges).slice(0, 30)
+      const avgPredictedAge = predictedAges.reduce((total, a) => total + a) / predictedAges.length
+      return avgPredictedAge
+    }
+
     video.addEventListener('play', () => {
         const canvas = faceapi.createCanvasFromMedia(video)
         canvas.setAttribute("style", "position: absolute;margin-left: 0px;padding: 0;display: flex;")
@@ -38,7 +44,7 @@ function StartAR(image) {
         faceapi.matchDimensions(canvas, displaySize)
 
         setInterval(async () => {
-            const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withAgeAndGender()
+            const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions().withAgeAndGender()
             if (detections.length == 0 && found) {
                 ruisantos.FaceComponent5.StaticInstance.ReceiveData("No Face Found");
                 found = false;
@@ -60,15 +66,15 @@ function StartAR(image) {
             const resizedDetections = faceapi.resizeResults(detections, displaySize)
 
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
-            //faceapi.draw.drawDetections(canvas, resizedDetections)
+            
+            //Write to screen
+            faceapi.draw.drawDetections(canvas, resizedDetections)
 
             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
-
-            //faceapi.draw.DrawTextField(age, anchor, drawOptions)
             
             resizedDetections.forEach( detection => {
             const box = detection.detection.box
-            const drawBox = new faceapi.draw.DrawBox(box, { label: Math.round(detection.age) + " year old " + detection.gender })
+            const drawBox = new faceapi.draw.DrawBox(box, { label: Math.round(interpolateAgePredictions(detection.age)) + " year old " + detection.gender })
             drawBox.draw(canvas)
     })
 
