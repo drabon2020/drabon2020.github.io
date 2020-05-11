@@ -49,7 +49,7 @@ function StartAR(image) {
             }
             ruisantos.FaceComponent5.StaticInstance.refreshData();
             
-            const anchor = { x: canvas.width, y: canvas.height }
+            const anchor = { x: detections.displaySize.width, y: detections.displaySize.height }
             // see DrawTextField below
             const drawOptions = {
             anchorPosition: 'TOP_LEFT',
