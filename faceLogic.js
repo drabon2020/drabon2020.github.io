@@ -58,13 +58,7 @@ function StartAR(image) {
 
             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
 
-            new faceapi.draw.DrawTextField(
-                [
-                  `${faceapi.utils.round(age, 0)} years`,
-                  `${gender} (${faceapi.utils.round(genderProbability)})`
-                ],
-                detections.detection.box.bottomLeft
-              ).draw(canvas)
+             faceapi.draw.DrawTextField(age, resizedDetections)
 
 
             //faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
