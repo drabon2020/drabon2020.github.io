@@ -26,12 +26,6 @@ function StartAR(image) {
         ).then(alert("Loaded"));
     }
 
-    function interpolateAgePredictions(age) {
-      predictedAges = [age].concat(predictedAges).slice(0, 30)
-      const avgPredictedAge = predictedAges.reduce((total, a) => total + a) / predictedAges.length
-      return avgPredictedAge
-    }
-
     video.addEventListener('play', () => {
         const canvas = faceapi.createCanvasFromMedia(video)
         canvas.setAttribute("style", "position: absolute;margin-left: 0px;padding: 0;display: flex;")
@@ -76,7 +70,7 @@ function StartAR(image) {
             
             resizedDetections.forEach( detection => {
             const box = detection.detection.box
-            const drawBox = new faceapi.draw.DrawBox(box, { label: Math.round(interpolateAgePredictions(detection.age)) + " year old " + detection.gender })
+            const drawBox = new faceapi.draw.DrawBox(box, { label: Math.round(detection.age) + " year old " + detection.gender })
             drawBox.draw(canvas)
     })
 
