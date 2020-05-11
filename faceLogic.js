@@ -47,8 +47,8 @@ function StartAR(image) {
                 found = false;
             }
             else if (detections.length > 0 && !found) {
-                //resizedDetections.forEach( detection => {
-                ruisantos.FaceComponent5.StaticInstance.ReceiveData("Found Face");
+                resizedDetections.forEach( detection => {
+                ruisantos.FaceComponent5.StaticInstance.ReceiveData(detection.age)});
                 found = true;
             }
             ruisantos.FaceComponent5.StaticInstance.refreshData();
