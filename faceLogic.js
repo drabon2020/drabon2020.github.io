@@ -39,7 +39,7 @@ function StartAR(image) {
 
         setInterval(async () => {
             const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withAgeAndGender()
-            if (detections.length == 0 && found) {
+                        if (detections.length == 0 && found) {
                 ruisantos.FaceComponent5.StaticInstance.ReceiveData("No Face Found");
                 found = false;
             }
@@ -49,17 +49,14 @@ function StartAR(image) {
             }
             ruisantos.FaceComponent5.StaticInstance.refreshData();
             /*
-            const anchor = { x: detections.displaySize.width, y: detections.displaySize.height }
+            const anchor = { x: 200, y: 200 }
             // see DrawTextField below
             const drawOptions = {
             anchorPosition: 'TOP_LEFT',
             backgroundColor: 'rgba(0, 0, 0, 0.5)'
             }
             */
-            
-
             const resizedDetections = faceapi.resizeResults(detections, displaySize)
-
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
             
             //Write to screen
@@ -74,12 +71,8 @@ function StartAR(image) {
             const drawBox = new faceapi.draw.DrawBox(box, { label: Math.round(detection.age) + " year old " + detection.gender })
             drawBox.draw(canvas)
     })
-
-
             
             
         }, 100)
     })
-
 }
-
