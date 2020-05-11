@@ -3,7 +3,7 @@ setTimeout(function () {
     ruisantos.FaceComponent5.StaticInstance.ReceiveData("Ready");
     ruisantos.FaceComponent5.StaticInstance.refreshData();
     StartAR("");
-}, 1000)
+}, 500)
 
 var found = false;
 
@@ -63,7 +63,7 @@ function StartAR(image) {
             
             
             //Write to screen
-            //faceapi.draw.drawDetections(canvas, resizedDetections)
+            faceapi.draw.drawDetections(canvas, resizedDetections)
             
             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
             
