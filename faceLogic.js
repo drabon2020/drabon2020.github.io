@@ -44,7 +44,7 @@ function StartAR(image) {
         faceapi.matchDimensions(canvas, displaySize)
 
         setInterval(async () => {
-            const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions().withAgeAndGender()
+            const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withAgeAndGender()
             if (detections.length == 0 && found) {
                 ruisantos.FaceComponent5.StaticInstance.ReceiveData("No Face Found");
                 found = false;
@@ -72,7 +72,7 @@ function StartAR(image) {
             
             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
             
-            faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+            //faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
             
             resizedDetections.forEach( detection => {
             const box = detection.detection.box
