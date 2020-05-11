@@ -14,7 +14,8 @@ function StartAR(image) {
         faceapi.nets.tinyFaceDetector.loadFromUri('https://drabon2020.github.io'),
         faceapi.nets.faceLandmark68Net.loadFromUri('https://drabon2020.github.io'),
         faceapi.nets.faceRecognitionNet.loadFromUri('https://drabon2020.github.io'),
-        faceapi.nets.faceExpressionNet.loadFromUri('https://drabon2020.github.io')
+        faceapi.nets.faceExpressionNet.loadFromUri('https://drabon2020.github.io'),
+        faceapi.nets.ageGenderNet.loadFromUri('https://drabon2020.github.io')
     ]).then(startVideo)
 
     function startVideo() {
