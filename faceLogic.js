@@ -71,9 +71,8 @@ function StartAR(image) {
             
             resizedDetections.forEach( detection => {
             const box = detection.detection.box
-            const drawAge = new faceapi.draw.DrawTextField([ `${faceapi.utils.round(detection.age)} years`, `${detection.gender}`
-          ], 
-            detection.detection.box.bottomLeft )
+            const drawAge = new faceapi.draw.DrawTextField(Math.utils.round(detection.age) +  "years" + detection.gender, 
+            detections.detection.box.bottomLeft )
             drawAge.draw(canvas)
     })
             
