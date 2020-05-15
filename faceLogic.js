@@ -75,7 +75,7 @@ function StartAR(image) {
           ], 
             detection.detection.box.bottomLeft )
             drawAge.draw(canvas)
-    })*/
+    })
             
             
         }, 100)
