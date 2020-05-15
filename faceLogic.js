@@ -52,9 +52,9 @@ function StartAR(image) {
                 found = true;
             }
             ruisantos.FaceComponent5.StaticInstance.refreshData();
-            /*
-            const anchor = { x: 200, y: 200 }
-            // see DrawTextField below
+           
+            const anchor = { x: 100, y: 100 }
+             /*// see DrawTextField below
             const drawOptions = {
             anchorPosition: 'TOP_LEFT',
             backgroundColor: 'rgba(0, 0, 0, 0.5)'
@@ -63,7 +63,7 @@ function StartAR(image) {
             
             
             //Write to screen
-            faceapi.draw.drawDetections(canvas, resizedDetections)
+            //faceapi.draw.drawDetections(canvas, resizedDetections)
             
             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
             
@@ -72,7 +72,7 @@ function StartAR(image) {
             resizedDetections.forEach( detection => {
             const box = detection.detection.box
             const drawAge = new faceapi.draw.DrawTextField(Math.utils.round(detection.age) +  "years" + detection.gender, 
-            box.bottomLeft )
+            anchor )
             drawAge.draw(canvas)
     })
             
