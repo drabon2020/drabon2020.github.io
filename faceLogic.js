@@ -62,18 +62,17 @@ function StartAR(image) {
             */
             
             
-            //Write to screen
+          //Write to screen
             //faceapi.draw.drawDetections(canvas, resizedDetections)
             
             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
             
-            //faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+            faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
             
             resizedDetections.forEach( detection => {
             const box = detection.detection.box
-            const drawAge = new faceapi.draw.DrawTextField(Math.utils.round(detection.age) +  "years" + detection.gender, 
-            anchor )
-            drawAge.draw(canvas)
+            const drawBox = new faceapi.draw.DrawBox(box, { label: Math.round(detection.age) + " year old " + detection.gender })
+            drawBox.draw(canvas)
     })
             
             
