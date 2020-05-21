@@ -38,7 +38,7 @@ function StartAR(image) {
         faceapi.matchDimensions(canvas, displaySize)
 
         setInterval(async () => {
-            const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withAgeAndGender()
+            const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions().withAgeAndGender()
             const resizedDetections = faceapi.resizeResults(detections, displaySize)
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
             
@@ -67,7 +67,7 @@ function StartAR(image) {
             
             faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
             
-            //faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+            faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
             
             resizedDetections.forEach( detection => {
             const box = detection.detection.box
